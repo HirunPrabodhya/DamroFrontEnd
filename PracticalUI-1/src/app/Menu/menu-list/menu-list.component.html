@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+        <form [formGroup]="menuPermissionForm">
+            <div class="row">
+                <select class="form-select bg-secondary" formControlName="userId" aria-label="Disabled select example" *ngIf="userList">
+                    <option *ngFor="let user of userList" [value]="user.userId">{{user.firstName + ' ' + user.middleName + ' ' + user.lastName}}</option>
+                  </select>
+            </div>
+            <div class="row">
+                <div class="table-response">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td *ngFor="let header of tableHeaders">{{header}}</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr *ngFor="let menu of menuList;let i = index;">
+                                    <td>{{menu.menuId}}</td>
+                                    <td>{{menu.menuName}}</td>
+                                    <td>
+                                        <input class="form-check-input" 
+                                            type="checkbox"
+                                            [formControlName]="i"
+                                            (change)="onChangeCheckbox(i,$event.target.checked)"
+                                            id="flexCheckDefault">
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+        <br>values:{{menuPermissionForm.value | json}}
+        <br>valid:{{menuPermissionForm.valid }}
+        <br>pristine:{{menuPermissionForm.pristine}}
+        <br>touched:{{menuPermissionForm.touched}}
+    </div>
+</div>

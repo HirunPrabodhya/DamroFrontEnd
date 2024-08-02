@@ -1,0 +1,1 @@
+export const tableHeaders = ['Menu Id','Name','Active']

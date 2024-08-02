@@ -1,0 +1,9 @@
+option{
+    color: #fff;
+}
+input[type='checkbox']{
+    border:1px blue solid;
+}
+.option1{
+    color:black;
+}
